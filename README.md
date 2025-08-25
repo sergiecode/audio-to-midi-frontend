@@ -336,8 +336,22 @@ This project is part of the educational content by **Sergie Code** and is provid
 ## 🔗 Links
 
 - **Backend Repository**: [audio-to-midi-backend](https://github.com/sergiecode/audio-to-midi-backend)
-- **YouTube Channel**: [Sergie Code](https://youtube.com/@sergiecode)
-- **Frontend Demo**: [Live Demo](https://your-demo-url.com)
+
+- 📸 Instagram: https://www.instagram.com/sergiecode
+
+- 🧑🏼‍💻 LinkedIn: https://www.linkedin.com/in/sergiecode/
+
+- 📽️Youtube: https://www.youtube.com/@SergieCode
+
+- 😺 Github: https://github.com/sergiecode
+
+- 👤 Facebook: https://www.facebook.com/sergiecodeok
+
+- 🎞️ Tiktok: https://www.tiktok.com/@sergiecode
+
+- 🕊️Twitter: https://twitter.com/sergiecode
+
+- 🧵Threads: https://www.threads.net/@sergiecode
 
 ---
 

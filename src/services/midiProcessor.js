@@ -165,7 +165,7 @@ export const convertMidiToVexFlow = (midiData) => {
           duration = '8';
         } else if (note.duration < 1) {
           duration = 'q';
-        } else if (note.duration < 2) {
+        } else if (note.duration <= 2) {
           duration = 'h';
         } else {
           duration = 'w';
