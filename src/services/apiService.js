@@ -6,7 +6,7 @@
  * Base URL: http://localhost:5000 (development)
  */
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000';
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || '/api';
 
 /**
  * Check if the backend service is healthy and available
@@ -14,11 +14,47 @@ const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000
  */
 export const checkBackendHealth = async () => {
   try {
-    const response = await fetch(`${API_BASE_URL}/health`);
+    console.log('Checking backend health at:', `${API_BASE_URL}/health`);
+    
+    // Try with different fetch options to handle potential CORS issues
+    const response = await fetch(`${API_BASE_URL}/health`, {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      mode: 'cors',
+      credentials: 'omit', // Don't send credentials
+      cache: 'no-cache',
+    });
+    
+    console.log('Backend health response status:', response.status);
+    console.log('Backend health response headers:', Object.fromEntries(response.headers.entries()));
+    
+    if (!response.ok) {
+      console.error('Backend health check failed with status:', response.status);
+      const text = await response.text();
+      console.error('Response text:', text);
+      return false;
+    }
+    
     const data = await response.json();
+    console.log('Backend health response data:', data);
     return data.status === 'healthy';
   } catch (error) {
     console.error('Backend health check failed:', error);
+    console.error('Error name:', error.name);
+    console.error('Error message:', error.message);
+    
+    // Try a simple ping to see if the server is reachable
+    try {
+      console.log('Attempting simple fetch...');
+      const simpleResponse = await fetch(`${API_BASE_URL}/health`, { mode: 'no-cors' });
+      console.log('Simple fetch response:', simpleResponse);
+    } catch (simpleError) {
+      console.error('Simple fetch also failed:', simpleError);
+    }
+    
     return false;
   }
 };
