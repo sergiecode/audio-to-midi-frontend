@@ -329,10 +329,6 @@ Created as part of the **Sergie Code** YouTube channel content:
 - React frontend development
 - Music notation libraries and web audio APIs
 
-## 📄 License
-
-This project is part of the educational content by **Sergie Code** and is provided for learning purposes.
-
 ## 🔗 Links
 
 - **Backend Repository**: [audio-to-midi-backend](https://github.com/sergiecode/audio-to-midi-backend)
